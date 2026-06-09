@@ -9,12 +9,20 @@ export default function Contact() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
 
-    // Simulate API call
-    console.log("Form submission:", new FormData(e.currentTarget as HTMLFormElement));
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    // Structured console logging as requested
+    console.log(">>> NEW INTAKE RECEIVED <<<");
+    console.table(data);
 
     setTimeout(() => {
       setStatus("success");

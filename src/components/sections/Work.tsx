@@ -4,7 +4,6 @@ import { useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
 
 const projects = [
@@ -13,28 +12,24 @@ const projects = [
     title: "AETHERIS",
     category: "Immersive Web Design",
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
-    color: "#D4AF37",
   },
   {
     id: 2,
     title: "NOIR STUDIO",
     category: "Brand Identity",
     image: "https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?q=80&w=2532&auto=format&fit=crop",
-    color: "#ffffff",
   },
   {
     id: 3,
     title: "KINETIC",
     category: "3D Motion Design",
     image: "https://images.unsplash.com/photo-1633167606207-d840b5070fc2?q=80&w=2533&auto=format&fit=crop",
-    color: "#E8C670",
   },
   {
     id: 4,
     title: "LUMINA",
     category: "Digital Experience",
     image: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2670&auto=format&fit=crop",
-    color: "#ffffff",
   },
 ];
 
@@ -81,6 +76,10 @@ export default function Work() {
               className="project-card group relative block overflow-hidden"
             >
               <div className="aspect-[16/10] overflow-hidden relative">
+                {/* Color bleed overlay */}
+                <div className="absolute inset-0 z-10 bg-accent/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-accent/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
+
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -88,7 +87,8 @@ export default function Work() {
                   className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500" />
-                <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+
+                <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
                   <div className="w-12 h-12 rounded-full border border-white flex items-center justify-center bg-black/50 backdrop-blur-md">
                     <ArrowUpRight className="text-white" size={24} />
                   </div>

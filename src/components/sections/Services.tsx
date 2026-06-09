@@ -2,7 +2,6 @@
 
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Monitor, Layers, Zap, Smartphone } from "lucide-react";
 
 const services = [
@@ -52,10 +51,10 @@ export default function Services() {
     <section id="services" ref={sectionRef} className="py-32 px-6 md:px-12 bg-[#050505]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-12">
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tightest leading-tight">
-            ELEVATING <br /> THE <span className="text-accent">DIGITAL</span> STANDARDS.
+          <h2 className="text-5xl md:text-8xl font-bold tracking-tightest leading-[0.9]">
+            ELEVATING <br /> <span className="text-accent">STANDARDS.</span>
           </h2>
-          <div className="max-w-md">
+          <div className="max-w-md pt-4">
             <p className="text-white/40 text-lg leading-relaxed mb-8">
               We specialize in the intersection of high-end aesthetics and technical mastery. Our approach is bespoke, cinematic, and uncompromising.
             </p>
