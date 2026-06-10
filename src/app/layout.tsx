@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "../styles/tokens.css";
 import { cn } from "@/lib/utils";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import MagneticCursor from "@/components/ui/MagneticCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +39,8 @@ export default function RootLayout({
           "min-h-screen bg-background text-foreground font-sans antialiased selection:bg-accent/30 selection:text-white overflow-x-hidden"
         )}
       >
+        <div className="grain" aria-hidden="true" />
+        <MagneticCursor />
         <SmoothScroll>
           <Navbar />
           <main>{children}</main>
