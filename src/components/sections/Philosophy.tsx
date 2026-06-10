@@ -3,24 +3,24 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Typography from "@/components/ui/Typography";
 
 export default function Philosophy() {
+  const containerRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const words = textRef.current?.querySelectorAll(".reveal-word");
       if (words) {
-        gsap.from(words, {
-          opacity: 0.1,
-          y: 20,
+        gsap.to(words, {
+          color: "white",
+          opacity: 1,
           stagger: 0.1,
-          duration: 1,
-          ease: "power2.out",
           scrollTrigger: {
-            trigger: textRef.current,
-            start: "top 80%",
-            end: "bottom 60%",
+            trigger: containerRef.current,
+            start: "top 70%",
+            end: "bottom 80%",
             scrub: true,
           },
         });
@@ -32,15 +32,28 @@ export default function Philosophy() {
   const text = "We believe that digital experiences should be more than just functional. They should be immersive, cinematic, and deeply resonant. At Dyadyami, we merge art with technology to create lasting impressions for visionary brands that demand nothing but the absolute best.";
 
   return (
-    <section id="philosophy" className="py-32 px-6 md:px-12 bg-[#0a0a0a] min-h-[80vh] flex items-center">
+    <section
+      id="philosophy"
+      ref={containerRef}
+      className="py-48 px-6 md:px-12 bg-background min-h-screen flex items-center"
+    >
       <div className="max-w-7xl mx-auto w-full">
-        <span className="text-accent font-mono text-sm tracking-[0.3em] uppercase mb-12 block">Our Philosophy</span>
+        <Typography variant="caption" className="mb-16 block">
+          Our Philosophy
+        </Typography>
+
         <div ref={textRef} className="max-w-5xl">
-          <p className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tightest leading-[1.1] flex flex-wrap gap-x-[0.3em] gap-y-[0.1em]">
+          <Typography
+            variant="h2"
+            as="div"
+            className="flex flex-wrap gap-x-[0.3em] gap-y-[0.2em] text-white/10"
+          >
             {text.split(" ").map((word, i) => (
-              <span key={i} className="reveal-word">{word}</span>
+              <span key={i} className="reveal-word transition-colors duration-500">
+                {word}
+              </span>
             ))}
-          </p>
+          </Typography>
         </div>
       </div>
     </section>
