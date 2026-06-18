@@ -1,0 +1,22 @@
+{
+  "dashboard": {
+    "connectors": "Connectors",
+    "new_connector": "New Connector",
+    "see_more": "See more",
+    "status": {
+      "connected": "Connected",
+      "not_connected": "Not Connected",
+      "syncing": "Syncing",
+      "error": "Connection Error"
+    },
+    "type": {
+      "installed": "Installed",
+      "recommended": "Recommended"
+    },
+    "empty_slot": {
+      "coming_soon": "Soon: Request Integration"
+    },
+    "search_placeholder": "Search connectors...",
+    "updated_at": "Updated {{hours}} hours ago"
+  }
+}

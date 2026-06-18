@@ -7,6 +7,7 @@ import SmoothScroll from "@/components/layout/SmoothScroll";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MagneticCursor from "@/components/ui/MagneticCursor";
+import I18nProvider from "@/components/dashboard/I18nProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,11 +42,13 @@ export default function RootLayout({
       >
         <div className="grain" aria-hidden="true" />
         <MagneticCursor />
-        <SmoothScroll>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </SmoothScroll>
+        <I18nProvider>
+          <SmoothScroll>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </SmoothScroll>
+        </I18nProvider>
       </body>
     </html>
   );
