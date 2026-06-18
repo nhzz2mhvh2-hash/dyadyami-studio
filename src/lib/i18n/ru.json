@@ -1,0 +1,22 @@
+{
+  "dashboard": {
+    "connectors": "Коннекторы",
+    "new_connector": "Новый коннектор",
+    "see_more": "Показать еще",
+    "status": {
+      "connected": "Подключено",
+      "not_connected": "Не подключено",
+      "syncing": "Синхронизация",
+      "error": "Ошибка подключения"
+    },
+    "type": {
+      "installed": "Установлено",
+      "recommended": "Рекомендуемое"
+    },
+    "empty_slot": {
+      "coming_soon": "Скоро: Запросить интеграцию"
+    },
+    "search_placeholder": "Поиск коннекторов...",
+    "updated_at": "Обновлено {{hours}} часов назад"
+  }
+}
