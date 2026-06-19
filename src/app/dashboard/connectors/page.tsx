@@ -19,39 +19,13 @@ interface Connector {
   type: 'installed' | 'recommended';
 }
 
-const fetcher = (): Promise<Connector[]> => new Promise((resolve) => {
-  setTimeout(() => {
-    resolve([
-      {
-        id: 'github',
-        name: 'GitHub',
-        iconPath: '/assets/icons/github.svg',
-        status: 'connected',
-        type: 'installed',
-      },
-      {
-        id: 'gmail',
-        name: 'Gmail',
-        iconPath: '/assets/icons/gmail.svg',
-        status: 'not_connected',
-        type: 'recommended',
-      },
-      {
-        id: 'notion',
-        name: 'Notion',
-        iconPath: '/assets/icons/notion.svg',
-        status: 'not_connected',
-        type: 'recommended',
-      },
-    ]);
-  }, 1500);
-});
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function ConnectorsPage() {
   const { t } = useTranslation('common');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { data: connectors, isLoading } = useSWR<Connector[]>('api/connectors', fetcher, {
+  const { data: connectors, isLoading } = useSWR<Connector[]>('/api/connectors', fetcher, {
     revalidateOnFocus: false,
   });
 
